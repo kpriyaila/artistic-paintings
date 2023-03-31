@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="text-left">Welcome {{user.first_name}} {{user.last_name}}!</h1>
+    <div class="row">
+        <div class="col-md-12 bg-light text-right">
+            <a href="/paintings/new" class="link-primary">Add Painting</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+        </div>
+    </div>
+    <h2 class="text">Paintings</h2>
+    <table id="data" class="table">
+            
+        <tbody>
+            {% for painting in paintings %}
+            <tr>
+                <td><a href="/painting/{{painting.id}}">{{ painting.title }}</a></td>    
+                <td>by {{ painting.first_name }} {{ painting.last_name }}</td>                        
+                <td>
+                {% if painting.users_id == session.user_id %}                
+                <a href="/delete/painting/{{painting.id}}">Delete |</a>                
+                <a href="/edit/painting/{{painting.id}}">Edit</a>
+                {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+</body>
+</html>

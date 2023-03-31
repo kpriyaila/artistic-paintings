@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12 bg-light text-right">
+            <a href="/paintings/new" class="link-primary">Add Painting</a>
+            <a href="/dashboard" class="link-primary">Dashboard</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+        </div>
+    </div>
+    <div class="card col-10 mx-auto my-5 text-primary">
+        <div class="card-body">
+            <h2 class="card-text">Title:  {{painting.title}}</h2>            
+            <p class="card-text">Painted by:  {{painting.first_name}} {{ painting.last_name }}</p>
+            <p class="card-text">Description:  {{painting.description}}</p>
+            <p class="card-text">Price:  ${{painting.price}}</p>            
+        </div>
+    </div>
+</body>
+</html>
